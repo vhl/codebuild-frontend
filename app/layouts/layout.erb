@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .build-status {
+        border-radius: .25em;
+        color: #fff;
+        display: inline-block;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        line-height: 1;
+        padding: 7px 10px;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: baseline;
+        white-space: nowrap;
+      } 
+
+      .build-success {
+        background-color: #19A974
+      }
+
+      .build-list-item {
+        display: table;
+        padding: 15px 20px;
+      }
+
+      .build-list-item-status {
+        display: table-cell;
+        min-width: 125px;
+        white-space: nowrap;
+        width: 1%;
+      }
+
+      .build-list-item-main-content {
+        display: table-cell;
+        padding-left: 20px;
+      }
+
+      .build-list-item-timestamp {
+        display: table-cell;
+        min-width: 200px;
+        white-space: nowrap;
+        width: 1%;
+      }
+
+      .build-success[href]:hover,.build-success[href]:focus {
+        background-color: #127d56
+      }
+
+      .build-failure {
+        background-color: #e42522
+      }
+
+      .build-failure[href]:hover,.build-failure[href]:focus {
+        background-color: #bc1a17
+      }
+    </style>
+
+    <title><%= @header %></title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+      integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+      crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <h1 class="navbar-brand"><%= @header %></h1>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <%= yield_content :navbar_right %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </body>
+</html>

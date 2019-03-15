@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'activesupport', '> 2.0', '< 6.0'
 gem 'aws-sdk-dynamodb', '~> 1.16'
 gem 'hashie', '> 1.0', '< 4.0'
@@ -10,6 +11,8 @@ group :development, :test do
   gem 'rubocop-rspec'
   gem 'pry'
   gem 'byebug'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

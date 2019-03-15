@@ -1,0 +1,26 @@
+<div class="clearfix"></div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Project</th>
+      <th scope="col">Builds</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @repos.each do |repo| %>
+      <% next if repo.projects.nil? || repo.git_repo_url.nil? %>
+      <% repo.build_projects.each_with_index do |project, index| %>
+        <tr>
+          <th scope="row"><%= repo.name if index.zero? %></th>
+          <td>
+            <a href="<%= project.build_url %>" target="_blank"%>
+            <span class="glyphicon <%= project.icon %>"></span></a>
+            <a href="/repos/<%= repo.id %>/projects/<%= project.code %>">
+              <%= project.code %>
+            </a>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
