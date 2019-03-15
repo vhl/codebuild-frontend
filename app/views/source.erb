@@ -1,0 +1,43 @@
+<div class="clearfix"></div>
+<div class="panel  panel-default">
+  <div class="row">
+    <% @source.builds.each do |build| %>
+      <div class="build-list-item">
+        <div class="build-list-item-status">
+          <a href="<%= build.build_url %>"
+             class="<%= build.text_status_classes %>"
+             target="_blank">
+             <%= build.status %></a>
+        </div>
+        <div class="build-list-item-main-content">
+          <div><b><%= build.commit_subject %></b></div>
+          <div>
+            <%= build.author_name %> authored
+            <a href="<%= build.commit_link %>" target="_blank">
+              <%= build.short_hash %></a>
+            <% if build.author_name != build.committer_name %>
+              <%= build.commiter_name %> committed
+            <% end %>
+          </div>
+        </div>
+        <div class="build-list-item-timestamp">
+          <a href="<%= build.build_url %>" target="_blank"%>
+             <%= build.start_time %></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :navbar_right do %>
+  <li>
+    <a href="/">
+      Projects
+    </a>
+  </li>
+  <li>
+    <a href="<%= @source.project_url %>">
+      <%= @source.source_id %>
+    </a>
+  </li>
+<% end %>
