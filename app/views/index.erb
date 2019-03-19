@@ -2,8 +2,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Project</th>
-      <th scope="col">Builds</th>
+      <th scope="col">Repo</th>
+      <th scope="col" colspan="3">Projects</th>
     </tr>
   </thead>
   <tbody>
@@ -13,11 +13,21 @@
         <tr>
           <th scope="row"><%= repo.name if index.zero? %></th>
           <td>
-            <a href="<%= project.build_url %>" target="_blank"%>
-            <span class="glyphicon <%= project.icon %>"></span></a>
             <a href="/repos/<%= repo.id %>/projects/<%= project.code %>">
               <%= project.code %>
             </a>
+          </td>
+          <td>
+            <a href="<%= project.build_url %>" 
+               class="<%= project.text_status_classes %>"
+               target="_blank">
+              <%= project.status %></a>
+            </a>
+          </td>
+          <td>
+            <a href="<%= project.build_url %>" 
+               target="_blank"
+               data-timestamp="<%= project.start_time %>"></a>
           </td>
         </tr>
       <% end %>

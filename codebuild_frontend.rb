@@ -21,18 +21,22 @@ Dir.glob('./app/models/*.rb') { |model_file| require model_file }
 
 get '/' do
   @repos = Repo.all
-  @header = 'CodeBuild Project Repositories'
+  @header = { tag: 'CodeBuild Project Repositories' }
   erb :index
 end
 
 get '/repos/:repo_id/projects/:code' do
   @project = Repo.find(params[:repo_id]).project(params[:code])
-  @header = "Branches for project #{@project.code}"
+  @header = { tag: "Branches for project #{@project.code}" }
   erb :project
 end
 
 get '/projects/:code/sources/:id' do
   @source = Source.find(params.to_h.symbolize_keys)
-  @header = "Builds for #{@source.source_title}"
+  @header = {
+    tag: "Builds for #{@source.source_title}",
+    html: %(Builds for <a href="#{@source.git_url}" target="_blank">) \
+           "#{@source.source_title}</a>"
+  }
   erb :source
 end
