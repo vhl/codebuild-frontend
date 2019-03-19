@@ -22,11 +22,27 @@ class Source < DynamoRecord
   end
 
   def source_title
-    "#{source_ref}#{" (branch #{branch_name})" if source_ref =~ %r{^pr/}}"
+    "#{source_ref}#{" (branch #{branch_name})" if pr?}"
   end
 
   def code
     source_id
+  end
+
+  def git_url
+    "#{git_repo_url}/#{url_path}"
+  end
+
+  private def url_path
+    if pr?
+      "pull/#{source_ref[3..-1]}"
+    else
+      "tree/#{branch_name}"
+    end
+  end
+
+  private def pr?
+    %r{\Apr/}.match?(source_ref)
   end
 
   def build_key

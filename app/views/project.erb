@@ -20,9 +20,9 @@
             <%= source.status %></a>
         </td>
         <td>
-          <a href="<%= source.build_url %>" target="_blank"%>
-            <%= source.start_time %>
-          </a>
+          <a href="<%= source.build_url %>" 
+             target="_blank"
+             data-timestamp="<%= source.start_time %>"></a>
         </td>
     <% end %>
   </tbody>

@@ -21,6 +21,6 @@ module BuildInfo
   end
 
   def start_time
-    Time.at((self[:start_time] || timestamp).to_i / 1000)
+    (self[:start_time] || timestamp).to_i
   end
 end

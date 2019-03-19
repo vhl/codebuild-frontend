@@ -11,4 +11,8 @@ class Build < DynamoRecord
   def short_hash
     commit_hash[0..7]
   end
+
+  def code
+    project_code
+  end
 end

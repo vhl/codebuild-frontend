@@ -21,8 +21,9 @@
           </div>
         </div>
         <div class="build-list-item-timestamp">
-          <a href="<%= build.build_url %>" target="_blank"%>
-             <%= build.start_time %></a>
+          <a href="<%= build.build_url %>" 
+             target="_blank"
+             data-timestamp="<%= build.start_time %>"></a>
         </div>
       </div>
     <% end %>
