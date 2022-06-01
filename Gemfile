@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'sinatra-contrib'
+gem 'sinatra', '~> 2.2.0'
+gem 'sinatra-contrib', '~> 2.2.0'
 gem 'activesupport', '> 2.0', '< 6.0'
 gem 'aws-sdk-dynamodb', '~> 1.16'
 gem 'hashie', '> 1.0', '< 4.0'
